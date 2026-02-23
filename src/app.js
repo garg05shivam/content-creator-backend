@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js";
 import assetRoutes from "./routes/assetRoutes.js";
 import chatRoutes from "./routes/chatRoutes.js";
+import inboxRoutes from "./routes/inboxRoutes.js";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.get("/api/health", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/assets", assetRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/inbox", inboxRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ success: false, message: "Route not found" });
